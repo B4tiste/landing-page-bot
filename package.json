@@ -1,0 +1,17 @@
+{
+    "name": "landing-page-bot",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build:css": "npx @tailwindcss/cli -i app.css -o public/output.css"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@tailwindcss/cli": "^4.1.11",
+        "daisyui": "^5.0.43",
+        "tailwindcss": "^4.1.11"
+    }
+}
