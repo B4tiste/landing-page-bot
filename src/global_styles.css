@@ -87,7 +87,7 @@ body {
 
 /* Card styles */
 .card {
-  @apply glass-dark rounded-2xl p-8 shadow-xl hover:shadow-glow transform hover:-translate-y-2 transition-all duration-500 ease-out;
+  @apply glass-dark rounded-2xl p-8 shadow-xl transform;
 }
 
 .card-feature {
@@ -101,6 +101,23 @@ body {
 
 .section-hero {
   @apply min-h-screen flex items-center justify-center relative overflow-hidden;
+}
+
+.features-masonry {
+  column-count: 1;
+  column-gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .features-masonry {
+    column-count: 2;
+  }
+}
+
+.features-masonry > .card {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 2rem; /* spacing between cards */
 }
 
 /* Animations */

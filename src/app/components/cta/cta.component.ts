@@ -20,7 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
         <div class="animate-scale-in">
           <h2 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-8">
             Ready to Dominate
-            <span class="block text-gradient">RTA Arena?</span>
+            <span class="block text-gradient">Real Time Arena?</span>
           </h2>
           
           <p class="text-xl sm:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed">
