@@ -1,5 +1,0 @@
-@import "tailwindcss" source(none);
-@source "./public/*.{html,js}";
-@plugin "daisyui" {
-  themes: synthwave --default;
-}
