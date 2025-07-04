@@ -101,18 +101,18 @@ import { MatIconModule } from "@angular/material/icon";
               <img
                 src="assets/images/bot_logo.gif"
                 alt="swbox Discord Bot Interface"
-                class="w-full max-w-lg mx-auto rounded-3xl shadow-2xl animate-glow ring-1 ring-white/10"
+                class="w-2/3 max-w-lg mx-auto rounded-3xl shadow-2xl animate-glow ring-1 ring-white/10"
               />
 
               <!-- Floating elements -->
               <div
-                class="absolute -top-4 -right-1 glass rounded-2xl p-4 animate-glow flex items-center justify-center"
+                class="absolute -top-4 right-8 glass rounded-2xl p-4 animate-glow flex items-center justify-center"
               >
                 <mat-icon class="text-primary-400">trending_up</mat-icon>
               </div>
 
               <div
-                class="absolute -bottom-4 -left-1 glass rounded-2xl p-4 animate-glow flex items-center justify-center"
+                class="absolute -bottom-4 left-8 glass rounded-2xl p-4 animate-glow flex items-center justify-center"
               >
                 <mat-icon class="text-secondary-400">leaderboard</mat-icon>
               </div>
@@ -150,7 +150,7 @@ export class HeroComponent implements OnInit {
   }));
 
   stats = [
-    { value: "2K+", label: "Active Users" },
+    { value: "2000+", label: "Active Users" },
     { value: "100K+", label: "Commands Used" },
     { value: "150+", label: "Discord Servers" },
   ];

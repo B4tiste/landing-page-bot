@@ -190,7 +190,7 @@ export class FeaturesComponent implements OnInit {
       image: "assets/images/get_rta_leaderboard.png",
       imageAlt: "RTA Leaderboard",
       icon: "leaderboard",
-      color: "bg-gradient-secondary",
+      color: "bg-gradient-accent",
       benefits: ["Real-time updates", "Performance insights"],
     },
   ];
