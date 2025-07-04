@@ -36,12 +36,12 @@ import { MatIconModule } from '@angular/material/icon';
             target="_blank"
             rel="noopener noreferrer"
           >
-            <mat-icon class="text-2xl group-hover:rotate-12 transition-transform">rocket_launch</mat-icon>
+            <mat-icon class="group-hover:rotate-12 transition-transform">rocket_launch</mat-icon>
             Add swbox to Discord
           </a>
           
           <button class="btn-outline inline-flex items-center justify-center gap-4 text-xl py-6 px-10 group border-white/30 text-white hover:bg-white hover:text-dark-900">
-            <mat-icon class="text-2xl group-hover:scale-110 transition-transform">help_outline</mat-icon>
+            <mat-icon class="group-hover:scale-110 transition-transform">help_outline</mat-icon>
             View Documentation
           </button>
         </div>
@@ -71,7 +71,7 @@ import { MatIconModule } from '@angular/material/icon';
           <div class="flex flex-wrap justify-center items-center gap-8 opacity-60">
             <div class="flex items-center gap-2" *ngFor="let guild of trustedGuilds">
               <div class="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
-                <mat-icon class="text-white text-sm">shield</mat-icon>
+                <mat-icon class="text-white">shield</mat-icon>
               </div>
               <span class="text-sm font-medium">{{ guild }}</span>
             </div>

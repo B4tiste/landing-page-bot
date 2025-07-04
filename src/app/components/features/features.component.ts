@@ -48,7 +48,7 @@ interface Feature {
                 class="w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300"
                 [ngClass]="feature.color"
               >
-                <mat-icon class="text-white text-2xl">{{ feature.icon }}</mat-icon>
+                <mat-icon class="text-white">{{ feature.icon }}</mat-icon>
               </div>
               <h3 class="text-2xl font-bold text-white group-hover:text-gradient transition-all duration-300">
                 {{ feature.title }}
@@ -66,7 +66,7 @@ interface Feature {
                 *ngFor="let benefit of feature.benefits"
                 class="flex items-center text-gray-400"
               >
-                <mat-icon class="text-primary-400 mr-3 text-sm">check_circle</mat-icon>
+                <mat-icon class="text-primary-400 mr-3">radio_button_unchecked</mat-icon>
                 {{ benefit }}
               </li>
             </ul>
@@ -120,8 +120,8 @@ export class FeaturesComponent implements OnInit {
   features: Feature[] = [
     {
       title: 'Player Analytics',
-      description: 'Get comprehensive statistics for any RTA player above C1 rank. Access detailed performance metrics, win rates, and strategic insights.',
-      image: 'assets/images/get_mob_stats.png',
+      description: 'Retrieve detailed stats of any RTA player using his in-game name. Stats contain information such as rank, win rate, most played monsters, LD5 and more. Only players above C1 can be searched.',
+      image: 'assets/images/get_player_stats.png',
       imageAlt: 'Player Statistics Dashboard',
       icon: 'person_search',
       color: 'bg-gradient-primary',
@@ -133,9 +133,9 @@ export class FeaturesComponent implements OnInit {
       ]
     },
     {
-      title: 'Monster Intelligence',
-      description: 'Analyze any monster\'s performance in RTA with detailed statistics including pick rates, ban rates, and synergy data.',
-      image: 'assets/images/get_player_stats.png',
+      title: 'Monster Analytics',
+      description: 'Retrieve detailed stats of any RTA monster using its name. Stats contain information such as win rate, pick rate, ban rate, and more. You can also see which monsters are the most played with/against this monster.',
+      image: 'assets/images/get_mob_stats.png',
       imageAlt: 'Monster Analytics Interface',
       icon: 'pets',
       color: 'bg-gradient-secondary',
@@ -148,7 +148,7 @@ export class FeaturesComponent implements OnInit {
     },
     {
       title: 'Rank Thresholds',
-      description: 'Stay updated with current RTA rank thresholds and elo requirements for each competitive tier.',
+      description: 'Retrieve the current RTA elo thresholds for each rank. This allows you to know how many elo points you need to reach a specific rank.',
       image: 'assets/images/get_ranks.png',
       imageAlt: 'RTA Rank System',
       icon: 'military_tech',
@@ -161,8 +161,8 @@ export class FeaturesComponent implements OnInit {
       ]
     },
     {
-      title: 'Team Builder',
-      description: 'Upload your account data and get personalized RTA team recommendations based on current meta analysis.',
+      title: "Don't know what to play ?",
+      description: 'Using an account JSON File, the bot uses SWRT current meta tier list to determine which RTA core team you can play with your account.',
       image: 'assets/images/get_rta_core.png',
       imageAlt: 'Team Building Interface',
       icon: 'groups',
@@ -189,8 +189,8 @@ export class FeaturesComponent implements OnInit {
       ]
     },
     {
-      title: 'Advanced Commands',
-      description: 'Access a comprehensive suite of specialized commands for detailed game analysis and strategic planning.',
+      title: 'Other Commands',
+      description: 'The entire command list is available using the /help command on your server.',
       image: 'assets/images/help.png',
       imageAlt: 'Command Interface',
       icon: 'terminal',

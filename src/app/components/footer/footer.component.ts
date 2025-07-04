@@ -18,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
           <div class="md:col-span-2">
             <div class="flex items-center mb-6">
               <div class="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mr-4">
-                <mat-icon class="text-white text-2xl">smart_toy</mat-icon>
+                <mat-icon class="text-white">smart_toy</mat-icon>
               </div>
               <h3 class="text-2xl font-bold text-gradient">swbox</h3>
             </div>
@@ -103,7 +103,18 @@ import { MatButtonModule } from '@angular/material/button';
           <div class="flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="text-gray-400 text-center md:text-left">
               <p>© 2025 <span class="font-bold text-gradient">swbox</span>. All rights reserved.</p>
-              <p class="text-sm mt-1">Made with ❤️ for the Summoners War community</p>
+              <p class="text-sm mt-1">
+                Made with ❤️ by 
+                <a 
+                  href="https://github.com/shvvkz" 
+                  class="text-blue-400 underline hover:text-blue-500 hover:cursor-pointer transition-colors"
+                >shvvkz</a>
+                & <a 
+                  href="https://github.com/B4tiste" 
+                  class="text-blue-400 underline hover:text-blue-500 hover:cursor-pointer transition-colors"
+                >B4tiste</a> 
+                for the Summoners War community
+              </p>
             </div>
             
             <div class="flex items-center gap-6 text-sm text-gray-400">

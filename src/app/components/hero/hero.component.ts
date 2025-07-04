@@ -39,7 +39,7 @@ import { MatIconModule } from '@angular/material/icon';
             <div class="space-y-6">
               <p class="text-lg text-gray-400 max-w-xl">
                 Access real-time player statistics, monster analytics, leaderboard tracking, 
-                and strategic insights to dominate the RTA arena.
+                and strategic insights to dominate the Real Time Arena.
               </p>
               
               <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -49,12 +49,16 @@ import { MatIconModule } from '@angular/material/icon';
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <mat-icon class="group-hover:scale-110 transition-transform">add</mat-icon>
+                  <span class="flex items-center justify-center">
+                    <mat-icon class="group-hover:scale-110 transition-transform">add</mat-icon>
+                  </span>
                   Add to Discord
                 </a>
                 
                 <button class="btn-outline inline-flex items-center justify-center gap-3 text-lg group">
-                  <mat-icon class="group-hover:scale-110 transition-transform">play_arrow</mat-icon>
+                  <span class="flex items-center justify-center">
+                    <mat-icon class="group-hover:scale-110 transition-transform">play_arrow</mat-icon>
+                  </span>
                   Watch Demo
                 </button>
               </div>
@@ -75,16 +79,16 @@ import { MatIconModule } from '@angular/material/icon';
               <img 
                 src="assets/images/bot_logo.gif"
                 alt="swbox Discord Bot Interface" 
-                class="w-full max-w-lg mx-auto rounded-3xl shadow-2xl ring-1 ring-white/10"
+                class="w-full max-w-lg mx-auto rounded-3xl shadow-2xl animate-glow ring-1 ring-white/10"
               >
               
               <!-- Floating elements -->
-              <div class="absolute -top-4 -right-4 glass rounded-2xl p-4 animate-bounce-slow">
-                <mat-icon class="text-primary-400 text-3xl">trending_up</mat-icon>
+              <div class="absolute -top-4 -right-1 glass rounded-2xl p-4 animate-glow flex items-center justify-center">
+                <mat-icon class="text-primary-400">trending_up</mat-icon>
               </div>
               
-              <div class="absolute -bottom-4 -left-4 glass rounded-2xl p-4 animate-pulse-slow">
-                <mat-icon class="text-secondary-400 text-3xl">leaderboard</mat-icon>
+              <div class="absolute -bottom-4 -left-1 glass rounded-2xl p-4 animate-glow flex items-center justify-center">
+                <mat-icon class="text-secondary-400">leaderboard</mat-icon>
               </div>
             </div>
             
@@ -95,8 +99,8 @@ import { MatIconModule } from '@angular/material/icon';
       </div>
       
       <!-- Scroll indicator -->
-      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <mat-icon class="text-white/60 text-3xl">keyboard_arrow_down</mat-icon>
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce flex items-center justify-center">
+        <mat-icon class="text-white/60">keyboard_arrow_down</mat-icon>
       </div>
     </section>
   `,
