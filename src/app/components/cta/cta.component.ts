@@ -29,7 +29,7 @@ import { MatIconModule } from "@angular/material/icon";
                     >
                         Ready to Dominate
                         <span class="block text-gradient"
-                            >Real Time Arena?</span
+                            >Real Time Arena ?</span
                         >
                     </h2>
 
@@ -39,7 +39,7 @@ import { MatIconModule } from "@angular/material/icon";
                         Add
                         <span class="font-bold text-gradient">swbox</span> to
                         your Discord server and unlock powerful tools to enhance
-                        your RTA experience. From real-time stats to advanced
+                        your RTA experience. From real time stats to advanced
                         team analysis, swbox is your ultimate companion for
                         climbing the ranks in Summoners War RTA.
                     </p>
@@ -78,56 +78,39 @@ import { MatIconModule } from "@angular/material/icon";
                     </a>
                 </div>
 
-                <!-- Trust Indicators -->
-                <div
-                    class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 animate-fade-in-up"
-                    style="animation-delay: 0.3s;"
-                >
-                    <div class="glass rounded-2xl p-6 text-center">
-                        <div class="text-4xl font-bold text-gradient mb-2">
-                            2000+
-                        </div>
-                        <div class="text-gray-300">Active Users</div>
-                    </div>
-
-                    <div class="glass rounded-2xl p-6 text-center">
-                        <div class="text-4xl font-bold text-gradient mb-2">
-                            100K+
-                        </div>
-                        <div class="text-gray-300">Command used</div>
-                    </div>
-
-                    <div class="glass rounded-2xl p-6 text-center">
-                        <div class="text-4xl font-bold text-gradient mb-2">
-                            150+
-                        </div>
-                        <div class="text-gray-300">Discord Servers</div>
-                    </div>
-                </div>
-
                 <!-- Social Proof -->
                 <div class="animate-fade-in-up" style="animation-delay: 0.6s;">
-                    <p class="text-gray-300 mb-8">
-                        Trusted and used by the biggest Summoners War Discord
-                        servers and content creators :
-                    </p>
-
                     <div
-                        class="flex flex-wrap justify-center items-center gap-8 opacity-60"
+                        class="max-w-4xl mx-auto bg-white bg-opacity-5 backdrop-blur-md rounded-2xl p-8 border border-white border-opacity-10 shadow-xl mb-8"
                     >
-                        <div
-                            class="flex items-center gap-2"
-                            *ngFor="let entity of trustedEntities"
+                        <h3
+                            class="text-2xl sm:text-3xl font-bold text-white mb-4"
                         >
+                            Trusted by the Best in the Summoners War Community
+                        </h3>
+                        <p class="text-lg text-gray-300 mb-8">
+                            These top creators and communities use
+                            <span class="font-bold text-gradient">swbox</span> :
+                        </p>
+
+                        <div class="flex flex-wrap justify-center gap-4">
                             <div
-                                class="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center"
+                                class="bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-4 border border-white border-opacity-10 shadow-md text-white text-center"
+                                *ngFor="let entity of trustedEntities"
                             >
-                                <mat-icon class="text-white">check</mat-icon>
+                                <div class="font-semibold text-lg">
+                                    {{ entity.name }}
+                                </div>
+                                <div class="text-sm text-gray-300">
+                                    {{ entity.description }}
+                                </div>
                             </div>
-                            <span class="text-sm font-medium">{{
-                                entity.name
-                            }}</span>
                         </div>
+                        <span class="block text-lg text-gray-300 mt-6">
+                            Join the community and see why
+                            <span class="font-bold text-gradient">swbox</span> is
+                            the go-to bot for RTA players !
+                        </span>
                     </div>
                 </div>
             </div>
@@ -143,13 +126,33 @@ import { MatIconModule } from "@angular/material/icon";
 })
 export class CtaComponent {
     trustedEntities = [
-        { name: "Sheisou" },
-        { name: "Guts" },
-        { name: "Videokilled" },
-        { name: "Tito Goflette" },
-        { name: "Seiishizo" },
-        { name: "Official Summoners War : Sky Arena" },
-        { name: "Summoners War FR 🥖" },
-        { name: "^[O.O]^" },
+        {
+            name: "SheisouTV",
+            description: "Content creator and high ranked player",
+        },
+        {
+            name: "GutsTheBERSERK",
+            description: "EU SWC Contender and RTA/Siege content creator",
+        },
+        {
+            name: "❃Video~ aka Videokilled",
+            description: "Community guide writer and high ranked player",
+        },
+        {
+            name: "TitoGoflette",
+            description: "Content creator and high ranked player",
+        },
+        {
+            name: "Official Summoners War : Sky Arena",
+            description: "Official SW discord server",
+        },
+        {
+            name: "Summoners War FR 🥖",
+            description: "French community discord server",
+        },
+        {
+            name: "^[O.O]^",
+            description: "Discord server of the 'Hiboux' French guild",
+        },
     ];
 }

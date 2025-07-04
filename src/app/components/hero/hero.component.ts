@@ -46,7 +46,7 @@ import { MatIconModule } from "@angular/material/icon";
 
             <div class="space-y-6">
               <p class="text-lg text-gray-400 max-w-xl">
-                Access real-time player statistics, monster analytics,
+                Access realtime player statistics, monster analytics,
                 leaderboard tracking, and strategic insights to dominate the
                 Real Time Arena.
               </p>

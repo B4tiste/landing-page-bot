@@ -30,8 +30,15 @@ import { MatButtonModule } from "@angular/material/button";
                         <p
                             class="text-gray-400 text-lg mb-6 max-w-md leading-relaxed"
                         >
-                            A special thanks to SWRT, SWARENA and SWARFARM for the data
-                            provided to make this bot possible.
+                            A special thanks to SWRT, SWARENA and SWARFARM for
+                            the data provided to make this bot possible.
+                            Regarding any questions or issues, feel free to
+                            reach to
+                            <code
+                                class="bg-primary-500 text-gray-200 px-2 py-1 rounded font-bold"
+                                >b4tiste</code
+                            >
+                            on Discord.
                         </p>
 
                         <div class="flex gap-4">

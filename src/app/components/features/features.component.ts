@@ -67,8 +67,8 @@ interface Feature {
                 *ngFor="let benefit of feature.benefits"
                 class="flex items-center text-gray-400"
               >
-                <mat-icon class="text-primary-400 mr-3"
-                  >radio_button_unchecked</mat-icon
+                <mat-icon class="text-primary-400 mr-1"
+                  >arrow_right</mat-icon
                 >
                 {{ benefit }}
               </li>
@@ -132,16 +132,17 @@ export class FeaturesComponent implements OnInit {
     {
       title: "Player Analytics",
       description:
-        "Retrieve detailed stats of any RTA player using his in-game name. Stats contain information such as rank, win rate, most played monsters, LD5 and more. Only players above C1 can be searched.",
+        "Retrieve detailed stats of any RTA player using their in-game name. Stats contain information such as rank, win rate, most played monsters, LD5 and more. Only players above C1 can be searched.",
       image: "assets/images/get_player_stats.png",
       imageAlt: "Player Statistics Dashboard",
       icon: "person_search",
       color: "bg-gradient-primary",
       benefits: [
-        "Real-time rank tracking",
+        "Real time rank tracking",
         "Win rate analysis",
         "Most played monsters",
         "LD5 collection overview",
+        "6 most recent matches",
       ],
     },
     {
@@ -186,20 +187,20 @@ export class FeaturesComponent implements OnInit {
     {
       title: "Live Leaderboard",
       description:
-        "Track the top RTA players in real-time with comprehensive leaderboard statistics and rankings.",
+        "Track the top RTA players in real time with comprehensive leaderboard statistics and rankings.",
       image: "assets/images/get_rta_leaderboard.png",
       imageAlt: "RTA Leaderboard",
       icon: "leaderboard",
       color: "bg-gradient-accent",
-      benefits: ["Real-time updates", "Performance insights"],
+      benefits: ["Real time updates"],
     },
   ];
 
   extraFeatures = [
     { name: "Up-To-Date Stats", icon: "update" },
     { name: "No Data Collection", icon: "storage" },
-    { name: "24/7 Support", icon: "support_agent" },
-    { name: "Free", icon: "money_off" },
+    { name: "Easy to use", icon: "engineering" },
+    { name: "Free to use", icon: "money_off" },
   ];
 
   ngOnInit() {
