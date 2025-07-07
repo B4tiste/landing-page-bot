@@ -154,5 +154,9 @@ export class CtaComponent {
             name: "^[O.O]^",
             description: "Discord server of the 'Hiboux' French guild",
         },
+        {
+          name: "SW RTA FR",
+          description: "French discord community server dedicated to RTA",
+        }
     ];
 }
