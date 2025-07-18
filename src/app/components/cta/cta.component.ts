@@ -37,10 +37,10 @@ import { MatIconModule } from "@angular/material/icon";
                         class="text-xl sm:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed"
                     >
                         Add
-                        <span class="font-bold text-gradient">swbox</span> to
+                        <span class="font-bold text-gradient">SWbox</span> to
                         your Discord server and unlock powerful tools to enhance
                         your RTA experience. From real time stats to advanced
-                        team analysis, swbox is your ultimate companion for
+                        team analysis, SWbox is your ultimate companion for
                         climbing the ranks in Summoners War RTA.
                     </p>
                 </div>
@@ -59,7 +59,7 @@ import { MatIconModule } from "@angular/material/icon";
                             class="group-hover:rotate-12 transition-transform"
                             >rocket_launch</mat-icon
                         >
-                        Add swbox to Discord
+                        Add SWox to Discord
                     </a>
 
                     <a
@@ -90,7 +90,7 @@ import { MatIconModule } from "@angular/material/icon";
                         </h3>
                         <p class="text-lg text-gray-300 mb-8">
                             These top creators and communities use
-                            <span class="font-bold text-gradient">swbox</span> :
+                            <span class="font-bold text-gradient">SWbox</span> :
                         </p>
 
                         <div class="flex flex-wrap justify-center gap-4">
@@ -108,7 +108,7 @@ import { MatIconModule } from "@angular/material/icon";
                         </div>
                         <span class="block text-lg text-gray-300 mt-6">
                             Join the community and see why
-                            <span class="font-bold text-gradient">swbox</span> is
+                            <span class="font-bold text-gradient">SWbox</span> is
                             the go-to bot for RTA players !
                         </span>
                     </div>

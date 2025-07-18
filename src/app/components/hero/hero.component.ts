@@ -36,7 +36,7 @@ import { MatIconModule } from "@angular/material/icon";
                 class="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-tight"
               >
                 Meet
-                <span class="text-gradient block">swbox</span>
+                <span class="text-gradient block">SWbox</span>
               </h1>
               <p class="text-xl sm:text-2xl text-gray-300 font-light max-w-2xl">
                 The most advanced Summoners War Discord bot designed for

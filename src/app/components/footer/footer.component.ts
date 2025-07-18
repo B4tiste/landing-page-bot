@@ -23,7 +23,7 @@ import { MatButtonModule } from "@angular/material/button";
                                 >
                             </div>
                             <h3 class="text-2xl font-bold text-gradient">
-                                swbox
+                                SWbox
                             </h3>
                         </div>
 
@@ -122,7 +122,7 @@ import { MatButtonModule } from "@angular/material/button";
                             <p>
                                 © 2025
                                 <span class="font-bold text-gradient"
-                                    >swbox</span
+                                    >SWbox</span
                                 >. All rights reserved.
                             </p>
                             <p class="text-sm mt-1">
