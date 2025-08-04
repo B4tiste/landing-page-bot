@@ -152,7 +152,7 @@ export class HeroComponent implements OnInit {
   stats = [
     { value: "2000+", label: "Active Users" },
     { value: "100K+", label: "Commands Used" },
-    { value: "185+", label: "Discord Servers" },
+    { value: "200+", label: "Discord Servers" },
   ];
 
   ngOnInit() {
