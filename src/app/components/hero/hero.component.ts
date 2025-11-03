@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
@@ -142,20 +142,85 @@ import { MatIconModule } from "@angular/material/icon";
     `,
   ],
 })
-export class HeroComponent implements OnInit {
-  particles = Array.from({ length: 20 }, (_, i) => ({
+export class HeroComponent implements OnInit, OnDestroy {
+  particles = Array.from({ length: 20 }, () => ({
     top: Math.random() * 100,
     left: Math.random() * 100,
     delay: Math.random() * 8,
   }));
 
+  commands = 0;
+  private intervalId?: number;
+
   stats = [
-    { value: "2000+", label: "Active Users" },
-    { value: "150K+", label: "Commands Used" },
-    { value: "275+", label: "Discord Server Joined" },
+    { value: "", label: "Active Users" },
+    { value: "", label: "Commands Used" },
+    { value: "289", label: "Discord Server Joined" },
   ];
 
-  ngOnInit() {
-    // Component initialization
+  constructor() {}
+
+  ngOnInit(): void {
+    this.fetchCommandsCount();
+    this.fetchUniqueUsersCount();
+
+    this.intervalId = window.setInterval(() => {
+      this.fetchCommandsCount();
+      this.fetchUniqueUsersCount();
+    }, 10000);
   }
-}
+
+  ngOnDestroy(): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+  }
+
+  private async fetchCommandsCount(): Promise<void> {
+    try {
+      const res = await fetch(
+        "https://api-mongo-swbox-to5y.shuttle.app/logs/commands"
+      );
+      if (!res.ok) return;
+
+      const data = await res.json();
+      console.log("Fetched command count data:", data);
+      const nb = Number((data as any)?.nb);
+
+      if (!Number.isNaN(nb)) {
+        this.commands = nb;
+        const commandsStat = this.stats.find(
+          (s) => s.label === "Commands Used"
+        );
+        if (commandsStat) {
+          commandsStat.value = `${this.commands.toLocaleString()}`;
+        }
+      }
+    } catch (err) {
+      console.error("Error fetching command count:", err);
+    }
+  }
+
+  private async fetchUniqueUsersCount(): Promise<void> {
+      try {
+        const unix = Math.floor(Date.now() / 1000);
+        console.log("Current unix time:", unix);
+
+        const res = await fetch("https://api-mongo-swbox-to5y.shuttle.app/logs/users?timestamp=" + (unix - 2629800));
+        if (!res.ok) return;
+
+        const data = await res.json();
+        console.log("Fetched unique users data:", data);
+        const nb = Number((data as any)?.nb);
+
+        if (!Number.isNaN(nb)) {
+          const activeStat = this.stats.find((s) => s.label === "Active Users");
+          if (activeStat) {
+            activeStat.value = `${nb.toLocaleString()}`;
+          }
+        }
+      } catch (err) {
+        console.error("Error fetching unique users count:", err);
+      }
+    }
+  }
