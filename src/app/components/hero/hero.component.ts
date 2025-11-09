@@ -155,7 +155,7 @@ export class HeroComponent implements OnInit, OnDestroy {
   stats = [
     { value: "", label: "Active Users" },
     { value: "", label: "Commands Used" },
-    { value: "289", label: "Discord Server Joined" },
+    { value: "296", label: "Discord Server Joined" },
   ];
 
   constructor() {}
