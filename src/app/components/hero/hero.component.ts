@@ -98,16 +98,11 @@ import { MatIconModule } from "@angular/material/icon";
           <!-- Hero Image -->
           <div class="relative animate-fade-in-right">
             <div class="relative z-10 animate-float">
-              <video
+              <img
+                src="assets/images/new_bot_logo.gif"
+                alt="swbox Discord Bot Interface"
                 class="w-2/3 max-w-lg mx-auto rounded-3xl shadow-2xl animate-glow ring-1 ring-white/10"
-                autoplay
-                muted
-                loop
-                playsinline
-              >
-                <source src="assets/videos/reduced.mp4" type="video/mp4" />
-                Votre navigateur ne supporte pas la vidéo.
-              </video>
+              />
 
               <!-- Credit to Aumission -->
               <div
