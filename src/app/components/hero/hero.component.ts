@@ -98,11 +98,29 @@ import { MatIconModule } from "@angular/material/icon";
           <!-- Hero Image -->
           <div class="relative animate-fade-in-right">
             <div class="relative z-10 animate-float">
-              <img
-                src="assets/images/bot_logo.gif"
-                alt="swbox Discord Bot Interface"
+              <video
                 class="w-2/3 max-w-lg mx-auto rounded-3xl shadow-2xl animate-glow ring-1 ring-white/10"
-              />
+                autoplay
+                muted
+                loop
+                playsinline
+              >
+                <source src="assets/videos/reduced.mp4" type="video/mp4" />
+                Votre navigateur ne supporte pas la vidéo.
+              </video>
+
+              <!-- Credit to Aumission -->
+              <div
+                class="absolute bottom-2 right-4 bg-black/50 text-white text-xs px-2 py-1 rounded-md"
+              >
+                Animation & 3D Model by
+                <a
+                  href="https://www.instagram.com/aumission/"
+                  target="_blank"
+                  class="underline"
+                  >Aumission</a
+                >
+              </div>
 
               <!-- Floating elements -->
               <div
@@ -202,25 +220,28 @@ export class HeroComponent implements OnInit, OnDestroy {
   }
 
   private async fetchUniqueUsersCount(): Promise<void> {
-      try {
-        const unix = Math.floor(Date.now() / 1000);
-        console.log("Current unix time:", unix);
+    try {
+      const unix = Math.floor(Date.now() / 1000);
+      console.log("Current unix time:", unix);
 
-        const res = await fetch("https://api-mongo-swbox-to5y.shuttle.app/logs/users?timestamp=" + (unix - 2629800));
-        if (!res.ok) return;
+      const res = await fetch(
+        "https://api-mongo-swbox-to5y.shuttle.app/logs/users?timestamp=" +
+          (unix - 2629800)
+      );
+      if (!res.ok) return;
 
-        const data = await res.json();
-        console.log("Fetched unique users data:", data);
-        const nb = Number((data as any)?.nb);
+      const data = await res.json();
+      console.log("Fetched unique users data:", data);
+      const nb = Number((data as any)?.nb);
 
-        if (!Number.isNaN(nb)) {
-          const activeStat = this.stats.find((s) => s.label === "Active Users");
-          if (activeStat) {
-            activeStat.value = `${nb.toLocaleString()}`;
-          }
+      if (!Number.isNaN(nb)) {
+        const activeStat = this.stats.find((s) => s.label === "Active Users");
+        if (activeStat) {
+          activeStat.value = `${nb.toLocaleString()}`;
         }
-      } catch (err) {
-        console.error("Error fetching unique users count:", err);
       }
+    } catch (err) {
+      console.error("Error fetching unique users count:", err);
     }
   }
+}
