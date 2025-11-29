@@ -69,17 +69,17 @@ import { MatIconModule } from "@angular/material/icon";
                 </a>
 
                 <a
-                  href="https://www.youtube.com/playlist?list=PLNbJfH5FAP7pwUqqash7xEYUyRpgmoclQ"
+                  href="https://discord.gg/AfANrTVaDJ"
                   class="btn-secondary inline-flex items-center justify-center gap-3 text-lg group"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <span class="flex items-center justify-center">
                     <mat-icon class="group-hover:scale-110 transition-transform"
-                      >play_arrow</mat-icon
+                      >discord</mat-icon
                     >
                   </span>
-                  Watch Demo
+                  Join the Discord Community
                 </a>
               </div>
             </div>
