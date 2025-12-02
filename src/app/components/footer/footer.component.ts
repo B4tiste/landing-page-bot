@@ -56,7 +56,7 @@ import { MatButtonModule } from "@angular/material/button";
                             </a>
 
                             <a
-                                href="https://www.youtube.com/playlist?list=PLNbJfH5FAP7pwUqqash7xEYUyRpgmoclQ"
+                                href="https://youtu.be/U6CxFH6WFKU"
                                 class="w-12 h-12 glass rounded-xl flex items-center justify-center hover:bg-secondary-500/20 transition-colors group"
                                 target="_blank"
                                 rel="noopener noreferrer"
