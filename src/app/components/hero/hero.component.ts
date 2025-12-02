@@ -166,9 +166,9 @@ export class HeroComponent implements OnInit, OnDestroy {
   private intervalId?: number;
 
   stats = [
-    { value: "", label: "Active Users" },
-    { value: "", label: "Commands Used" },
-    { value: "300+", label: "Discord Server Joined" },
+    { value: "", label: "Active users" },
+    { value: "", label: "Commands used" },
+    { value: "300+", label: "Discord server joined" },
   ];
 
   constructor() {}
@@ -203,7 +203,7 @@ export class HeroComponent implements OnInit, OnDestroy {
       if (!Number.isNaN(nb)) {
         this.commands = nb;
         const commandsStat = this.stats.find(
-          (s) => s.label === "Commands Used"
+          (s) => s.label === "Commands used"
         );
         if (commandsStat) {
           commandsStat.value = `${this.commands.toLocaleString()}`;
@@ -230,7 +230,7 @@ export class HeroComponent implements OnInit, OnDestroy {
       const nb = Number((data as any)?.nb);
 
       if (!Number.isNaN(nb)) {
-        const activeStat = this.stats.find((s) => s.label === "Active Users");
+        const activeStat = this.stats.find((s) => s.label === "Active users");
         if (activeStat) {
           activeStat.value = `${nb.toLocaleString()}`;
         }
