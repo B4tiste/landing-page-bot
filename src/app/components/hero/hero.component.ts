@@ -277,10 +277,9 @@ export class HeroComponent implements OnInit, OnDestroy {
       if (!Number.isNaN(nb)) {
         this.servers = nb;
         const serverStat = this.stats.find(
-          (s) => s.label === "Discord Server Joined"
+          (s) => s.label === "Discord server joined"
         );
         if (serverStat) {
-          // tu peux mettre un "+" si tu veux garder le côté "300+"
           serverStat.value = `${this.servers.toLocaleString()}`;
         }
       }
