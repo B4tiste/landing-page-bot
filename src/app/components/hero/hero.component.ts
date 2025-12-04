@@ -279,7 +279,7 @@ export class HeroComponent implements OnInit, OnDestroy {
     }
   }
 
-  private animateStat(key: StatKey, target: number, duration = 800): void {
+  private animateStat(key: StatKey, target: number, duration = 3000): void {
     const stat = this.stats.find((s) => s.key === key);
     if (!stat) return;
 
