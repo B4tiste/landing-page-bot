@@ -3,6 +3,14 @@ import { CommonModule } from "@angular/common";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 
+type StatKey = "users" | "commands" | "servers";
+
+interface Stat {
+  key: StatKey;
+  value: number;
+  label: string;
+}
+
 @Component({
   selector: "app-hero",
   standalone: true,
@@ -106,7 +114,7 @@ import { MatIconModule } from "@angular/material/icon";
             <div class="grid grid-cols-3 gap-8 pt-8 border-t border-gray-700">
               <div class="text-center" *ngFor="let stat of stats">
                 <div class="text-3xl font-bold text-gradient">
-                  {{ stat.value }}
+                  {{ stat.value | number }}
                 </div>
                 <div class="text-sm text-gray-400 mt-1">
                   {{ stat.label }}
@@ -182,14 +190,12 @@ export class HeroComponent implements OnInit, OnDestroy {
     delay: Math.random() * 8,
   }));
 
-  commands = 0;
-  servers = 0;
   private intervalId?: number;
 
-  stats = [
-    { value: "", label: "Active users" },
-    { value: "", label: "Commands used" },
-    { value: "", label: "Discord server joined" },
+  stats: Stat[] = [
+    { key: "users", value: 0, label: "Active users" },
+    { key: "commands", value: 0, label: "Commands used" },
+    { key: "servers", value: 0, label: "Discord server joined" },
   ];
 
   constructor() {}
@@ -224,13 +230,7 @@ export class HeroComponent implements OnInit, OnDestroy {
       const nb = Number((data as any)?.nb);
 
       if (!Number.isNaN(nb)) {
-        this.commands = nb;
-        const commandsStat = this.stats.find(
-          (s) => s.label === "Commands used"
-        );
-        if (commandsStat) {
-          commandsStat.value = `${this.commands.toLocaleString()}`;
-        }
+        this.animateStat("commands", nb);
       }
     } catch (err) {
       console.error("Error fetching command count:", err);
@@ -253,10 +253,7 @@ export class HeroComponent implements OnInit, OnDestroy {
       const nb = Number((data as any)?.nb);
 
       if (!Number.isNaN(nb)) {
-        const activeStat = this.stats.find((s) => s.label === "Active users");
-        if (activeStat) {
-          activeStat.value = `${nb.toLocaleString()}`;
-        }
+        this.animateStat("users", nb);
       }
     } catch (err) {
       console.error("Error fetching unique users count:", err);
@@ -275,16 +272,37 @@ export class HeroComponent implements OnInit, OnDestroy {
       const nb = Number((data as any)?.nb);
 
       if (!Number.isNaN(nb)) {
-        this.servers = nb;
-        const serverStat = this.stats.find(
-          (s) => s.label === "Discord server joined"
-        );
-        if (serverStat) {
-          serverStat.value = `${this.servers.toLocaleString()}`;
-        }
+        this.animateStat("servers", nb);
       }
     } catch (err) {
       console.error("Error fetching servers count:", err);
     }
+  }
+
+  private animateStat(key: StatKey, target: number, duration = 800): void {
+    const stat = this.stats.find((s) => s.key === key);
+    if (!stat) return;
+
+    const start = stat.value || 0;
+    const diff = target - start;
+    if (diff === 0) return;
+
+    const startTime = performance.now();
+
+    const step = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1); // 0 → 1
+
+      // Ease-out (facultatif pour une anim plus smooth)
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      stat.value = Math.round(start + diff * eased);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
   }
 }
