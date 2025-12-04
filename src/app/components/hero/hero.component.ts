@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
+import { Pipe, PipeTransform } from '@angular/core';
 
 type StatKey = "users" | "commands" | "servers";
 
@@ -11,10 +12,23 @@ interface Stat {
   label: string;
 }
 
+@Pipe({
+  name: 'numberSpace',
+  standalone: true,
+})
+export class NumberSpacePipe implements PipeTransform {
+  transform(value: number | null | undefined): string {
+    if (value == null) return '';
+    return value
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  }
+}
+
 @Component({
   selector: "app-hero",
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule],
+  imports: [CommonModule, MatButtonModule, MatIconModule, NumberSpacePipe],
   template: `
     <section
       class="section-hero bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 text-white relative overflow-hidden"
@@ -114,7 +128,7 @@ interface Stat {
             <div class="grid grid-cols-3 gap-8 pt-8 border-t border-gray-700">
               <div class="text-center" *ngFor="let stat of stats">
                 <div class="text-3xl font-bold text-gradient">
-                  {{ stat.value | number }}
+                  {{ stat.value | numberSpace }}
                 </div>
                 <div class="text-sm text-gray-400 mt-1">
                   {{ stat.label }}
