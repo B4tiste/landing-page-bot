@@ -143,10 +143,6 @@ export class CtaComponent {
             description: "Content creator and high ranked player",
         },
         {
-            name: "Official Summoners War : Sky Arena",
-            description: "Official SW discord server",
-        },
-        {
             name: "Summoners War FR 🥖",
             description: "French community discord server",
         },
