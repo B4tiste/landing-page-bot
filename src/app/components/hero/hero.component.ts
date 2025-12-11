@@ -73,6 +73,10 @@ export class NumberSpacePipe implements PipeTransform {
                 Real Time Arena.
               </p>
 
+              <p class="text-lg text-gray-400 max-w-xl">
+                Data is provided by <a href="https://m.swranking.com" target="_blank" rel="noopener noreferrer" class="underline text-orange-600">swranking</a>.
+              </p>
+
               <div
                 class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
