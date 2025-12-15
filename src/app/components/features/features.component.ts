@@ -168,7 +168,10 @@ export class FeaturesComponent implements OnInit {
       imageAlt: "RTA Rank System",
       icon: "grade",
       color: "bg-gradient-accent",
-      benefits: ["Live threshold updates"],
+      benefits: [
+        "Live threshold updates",
+        "Cutoff predictions at the end of the season"
+      ],
     },
     {
       title: "Don't know what to play ?",
