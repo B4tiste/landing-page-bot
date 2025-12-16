@@ -125,6 +125,20 @@ export class NumberSpacePipe implements PipeTransform {
                   </span>
                   Watch on YouTube
                 </a>
+                <!-- Add Ko-Fi link button -->
+                <a
+                  href="https://ko-fi.com/swbox"
+                  class="btn-kofi inline-flex items-center justify-center gap-3 text-lg group"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="flex items-center justify-center">
+                    <mat-icon class="group-hover:scale-110 transition-transform"
+                      >favorite</mat-icon
+                    >
+                  </span>
+                  Support us on Ko-Fi
+                </a>
               </div>
             </div>
 
