@@ -241,7 +241,7 @@ export class HeroComponent implements OnInit, OnDestroy {
       this.fetchCommandsCount();
       this.fetchUniqueUsersCount();
       this.fetchServersCount();
-    }, 10000);
+    }, 60000); // every 60 seconds
   }
 
   ngOnDestroy(): void {
@@ -253,7 +253,7 @@ export class HeroComponent implements OnInit, OnDestroy {
   private async fetchCommandsCount(): Promise<void> {
     try {
       const res = await fetch(
-        "https://api-mongo-swbox-to5y.shuttle.app/logs/commands"
+        "https://api-mongo-swbox.fly.dev/logs/commands"
       );
       if (!res.ok) return;
 
@@ -275,7 +275,7 @@ export class HeroComponent implements OnInit, OnDestroy {
       console.log("Current unix time:", unix);
 
       const res = await fetch(
-        "https://api-mongo-swbox-to5y.shuttle.app/logs/users?timestamp=" +
+        "https://api-mongo-swbox.fly.dev/logs/users?timestamp=" +
           (unix - 2629800)
       );
       if (!res.ok) return;
@@ -295,7 +295,7 @@ export class HeroComponent implements OnInit, OnDestroy {
   private async fetchServersCount(): Promise<void> {
     try {
       const res = await fetch(
-        "https://api-mongo-swbox-to5y.shuttle.app/logs/servers"
+        "https://api-mongo-swbox.fly.dev/logs/servers"
       );
       if (!res.ok) return;
 
