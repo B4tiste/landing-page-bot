@@ -225,7 +225,7 @@ export class HeroComponent implements OnInit, OnDestroy {
   private intervalId?: number;
 
   stats: Stat[] = [
-    { key: "users", value: 0, label: "Active users" },
+    { key: "users", value: 0, label: "Users" },
     { key: "commands", value: 0, label: "Commands used" },
     { key: "servers", value: 0, label: "Discord server joined" },
   ];
@@ -271,24 +271,20 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   private async fetchUniqueUsersCount(): Promise<void> {
     try {
-      const unix = Math.floor(Date.now() / 1000);
-      console.log("Current unix time:", unix);
-
       const res = await fetch(
-        "https://api-mongo-swbox.fly.dev/logs/users?timestamp=" +
-          (unix - 2629800)
+        "https://api-mongo-swbox.fly.dev/logs/users?timestamp="
       );
       if (!res.ok) return;
 
       const data = await res.json();
-      console.log("Fetched unique users data:", data);
+      console.log("Fetched users data:", data);
       const nb = Number((data as any)?.nb);
 
       if (!Number.isNaN(nb)) {
         this.animateStat("users", nb);
       }
     } catch (err) {
-      console.error("Error fetching unique users count:", err);
+      console.error("Error fetching users count:", err);
     }
   }
 
