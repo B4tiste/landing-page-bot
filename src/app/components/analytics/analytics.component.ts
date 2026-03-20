@@ -153,7 +153,15 @@ export class AnalyticsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   setMode(m: ChartMode): void {
     this.mode = m;
-    this.renderChart();
+    if (this.chart) {
+      const { labels, values } = this.buildSeries();
+      this.chart.data.labels = labels;
+      this.chart.data.datasets[0].data = values;
+      this.chart.update();
+      this.computePeak(labels, values);
+    } else {
+      this.renderChart();
+    }
   }
 
   private async fetchData(): Promise<void> {
@@ -178,7 +186,12 @@ export class AnalyticsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private renderChart(): void {
-    if (!this.chartCanvas?.nativeElement || !this.rawDaily.length) return;
+    // Canvas is inside *ngIf — wait one tick for Angular to render it
+    setTimeout(() => this.doRenderChart());
+  }
+
+  private doRenderChart(): void {
+    if (!this.chartCanvas?.nativeElement || (!this.rawDaily.length && !this.rawWeekly.length)) return;
 
     const { labels, values } = this.buildSeries();
 
@@ -208,7 +221,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit, OnDestroy {
             borderColor: "#0ea5e9",
             backgroundColor: gradient,
             borderWidth: 2.5,
-            pointRadius: labels.length > 60 ? 0 : 3,
+            pointRadius: 0,
             pointHoverRadius: 6,
             pointBackgroundColor: "#d946ef",
             pointBorderColor: "#fff",
@@ -288,15 +301,19 @@ export class AnalyticsComponent implements OnInit, AfterViewInit, OnDestroy {
     for (const p of points) {
       cumulative += p.count;
       values.push(cumulative);
-      labels.push(this.formatDate(p.date));
+      labels.push(this.formatDate(p.date, true));
     }
     return { labels, values };
   }
 
-  private formatDate(date: string): string {
-    // YYYY-MM-DD → "Mar 15"
+  private formatDate(date: string, includeYear = false): string {
+    // YYYY-MM-DD → "Mar 15" or "Mar 15, 2026"
     const d = new Date(date + "T00:00:00");
-    return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+    return d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      ...(includeYear ? { year: "numeric" } : {}),
+    });
   }
 
   private formatWeek(date: string): string {
@@ -310,7 +327,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private computePeak(labels: string[], values: number[]): void {
-    if (!values.length) { this.peakLabel = ""; return; }
+    if (this.mode === "overall" || !values.length) { this.peakLabel = ""; return; }
     const max = Math.max(...values);
     const idx = values.indexOf(max);
     this.peakLabel = `${max.toLocaleString()} on ${labels[idx]}`;
