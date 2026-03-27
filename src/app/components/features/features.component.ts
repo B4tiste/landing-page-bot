@@ -188,6 +188,19 @@ export class FeaturesComponent implements OnInit {
       ],
     },
     {
+      title: "Don't know how to rune a monster ?",
+      description:
+        "Using the /how_to_build command, the bot uses Lucksack.gg current data to provide optimal rune/artifact recommendations for your monsters.",
+      image: "assets/images/how_to_build.png",
+      imageAlt: "Team Building Interface",
+      icon: "settings",
+      color: "bg-gradient-secondary",
+      benefits: [
+        "Optimal rune/artifact recommendations",
+        "Rank-based suggestions",
+      ],
+    },
+    {
       title: "Live Leaderboard",
       description:
         "Track the top RTA players in real time with comprehensive leaderboard statistics and rankings.",
