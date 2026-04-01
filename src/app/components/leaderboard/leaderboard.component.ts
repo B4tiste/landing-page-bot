@@ -306,7 +306,7 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
 
   userSearch = "";
   usersLimit = 10;
-  hideDevUser = false;
+  hideDevUser = true;
   readonly limitOptions = [10, 25, 50, 100];
   readonly devUsername = "b4tiste";
 
